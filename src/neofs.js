@@ -13,7 +13,8 @@ const {PlacementPolicy, Replica} = require('./generated/netmap/types_pb')
 const {Signature, OwnerID, Version, ContainerID} = require('./generated/refs/types_pb');
 const {RequestMetaHeader, RequestVerificationHeader} = require('./generated/session/service_pb');
 
-const grpcProxy = 'https://node1.splyse.tech';
+// URL of envoy proxy instance
+const grpcProxy = 'http://127.0.0.1:10000';
 
 function rfc6979Sign(msg, account) {
     const sig = wallet.sign(u.ab2hexstring(msg), account.privateKey);

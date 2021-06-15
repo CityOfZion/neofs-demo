@@ -25,6 +25,9 @@ initializeIcons();
 const textFieldStyles = { fieldGroup: { width: 300 } };
 const stackTokens = { childrenGap: 15 };
 
+// URL of running neofs-http-gw intance
+const httpGateway = "http://127.0.0.1:8080"; 
+
 function App() {
 
   const [accountBalance, setBalance] = useState(0)
@@ -123,7 +126,7 @@ function App() {
       headers: { Authorization: `Bearer ${bearerToken}` }
     };
 		axios.post(
-			`https://node1.splyse.tech/upload/${containerId}`, formData, config
+			`${httpGateway}/upload/${containerId}`, formData, config
 		)
     .then(result => { 
       setUploadResponse(result.data);
@@ -233,8 +236,8 @@ function App() {
               </React.Fragment>
               }
             { uploadResponse && <React.Fragment>
-              <div>Uploaded: <a href={`https://node1.splyse.tech/get/${uploadResponse.container_id}/${uploadResponse.object_id}`}>{`${uploadResponse.container_id}/${uploadResponse.object_id}`}</a></div>
-              <div><img alt="uploaded" width={300} src={`https://node1.splyse.tech/get/${uploadResponse.container_id}/${uploadResponse.object_id}`} /></div> 
+              <div>Uploaded: <a href={`${httpGateway}/get/${uploadResponse.container_id}/${uploadResponse.object_id}`}>{`${uploadResponse.container_id}/${uploadResponse.object_id}`}</a></div>
+              <div><img alt="uploaded" width={300} src={`${httpGateway}/get/${uploadResponse.container_id}/${uploadResponse.object_id}`} /></div> 
               </React.Fragment>
             }
           </Stack.Item>
