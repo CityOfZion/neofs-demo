@@ -17,7 +17,7 @@ In order to run this app, you must run an instance of neofs-http-gw and envoy.
 Run neofs-http-gw with the following command:
 
 ```
-neofs-http-gw -p [st1.storage.fs.neo.org:8080](http://st1.storage.fs.neo.org:8080/) --listen_address 127.0.0.1:8080
+neofs-http-gw -p st1.storage.fs.neo.org:8080 --listen_address 127.0.0.1:8080
 ```
 
 For envoy, create a new configuration file config.yaml with the following content:
